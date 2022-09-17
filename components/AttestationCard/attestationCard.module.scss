@@ -1,0 +1,81 @@
+.container {
+    position: relative;
+    padding: MIN(4vw, 55px);
+    flex-basis: 50%;
+    min-height: 250px;
+    color: white;
+    background-color: #2d2c2a;
+    border-color: transparent transparent black black;
+        
+    &.red {
+        background-color: #ff3535;
+        border-color: transparent transparent #cd1800 #cd1800;
+    }
+
+    &.corner {
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-style: solid; 
+            z-index: 1;
+        }
+
+        &::before {
+            transform: translateY(-50%);
+            border-width: MAX(2.2vw, 30px);
+            border-color: transparent  white transparent transparent;
+        }
+
+        &::after {
+            border-width: MAX(1.1vw, 15px);
+            border-color: inherit;
+        }
+    }
+}
+
+.title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 120%;
+}
+
+.description {
+    margin: 25px 0 0 0;
+    padding-left: 20px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 130%;
+    list-style: none;
+
+    &_paragrph {
+        position: relative;
+        margin-top: 10px;
+
+        &.bullets::before {
+            @include bullet-point
+        }
+    }
+}
+
+@include max-width($break-point-mid) {
+    .container {
+        flex-basis: auto; 
+    }
+}
+
+@include max-width($break-point-small) {
+    .container {
+        padding: 30px 15px;
+    }
+
+    .title { 
+        font-size: 25px;
+    }
+    .modules {
+        display: block;
+    }
+}

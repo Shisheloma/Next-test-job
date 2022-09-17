@@ -1,0 +1,36 @@
+.container {
+    margin-top: 70px;
+}
+
+.title {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.modules {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 2.2vw;
+}
+
+@include max-width($break-point-mid) {
+    .modules {
+        column-gap: 4vw;
+    }
+}
+
+@include max-width($break-point-small) {
+    .container {
+        margin-top: 25px;
+    }
+
+    .title { 
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+    .modules {
+        display: block;
+    }
+}

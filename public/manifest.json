@@ -1,0 +1,22 @@
+{
+    "name": "MBA_test-job",
+    "short_name": "MBA",
+    "display": "standalone",
+    "background_color": "#141414",
+    "theme_color": "#141414",
+    "icons": [
+        {
+            "src": "./favicon-144.png",
+            "sizes": "144x144",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./favicon-512_maskable.png",
+            "sizes": "512x512",
+            "type": "image/png" ,
+            "purpose": "maskable"
+          }
+    ],
+    "start_url": "." 
+}

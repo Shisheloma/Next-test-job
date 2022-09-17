@@ -1,0 +1,108 @@
+.container {
+    margin-top: 55px;
+    flex-basis: 50%;
+    display: flex;
+}
+
+.title {
+    display: inline-block;
+    margin: 0;
+    padding-top: 30px;
+    flex-shrink: 0;
+    font-size: 32px;    
+    font-weight: 400;
+    border-top: 1px solid red;
+}
+
+.list {
+    flex-shrink: 1;
+    margin: 0;
+    padding-top: 30px;
+    padding-left: 4vw;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 120%;
+    list-style: none;
+    
+    &_item {
+        display: block;
+        position: relative;
+        margin-bottom: 10px;
+
+        &::before {
+            @include bullet-point
+        }
+    }
+}
+
+@include max-width($break-point-mid) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+@include max-width($break-point-small) {
+    .container {
+        margin: 0;
+
+        &.opened {
+            .title { 
+                color: white;
+                background-color: #ff3535;
+                
+                &::before {
+                    background-image: url('../../public/minus.svg');
+                }
+            }
+        }
+
+        .title { 
+            position: relative;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 70px;
+            font-weight: 300;
+            font-size: 18px;
+            background-color: #F7F7F7;
+            border: none;
+            cursor: pointer;
+            transition: filter 100ms, font-size 100ms;
+            
+            &:hover {
+                filter: brightness(0.95);
+                font-size: 19px;
+            }
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 18px;
+                height: 18px;
+                top: 50%;
+                left: 25px;
+                transform: translate(-50%, -50%);
+                background: url('../../public/plus.svg') no-repeat center/contain;
+            }
+        }
+
+        .list {
+            margin: 0;
+            padding-top: 15px;
+            max-height: 0;
+            overflow-y: hidden;
+            transition: max-height 500ms;
+            
+            &_item::before { 
+                left: -12px;
+            }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .list,
+    .title {
+        transition: all 0s !important; 
+    }
+}

@@ -1,0 +1,17 @@
+@mixin max-width($value) {
+    @media screen and (max-width: $value) {
+        @content
+    }   
+};
+
+@mixin bullet-point {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: -15px;
+    transform: translate(-50%, -50%);
+    width:  5px;
+    height: 5px;
+    border-radius: 100%;
+    background: #FF3535;
+}

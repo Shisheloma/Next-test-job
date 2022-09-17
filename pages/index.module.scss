@@ -1,0 +1,46 @@
+.main {
+    display: grid;
+    place-content: center;
+    margin: auto;
+    margin-top: MIN(10vh, 70px);
+    margin-bottom: 30px;
+    width: MIN(1450px, 90vw);
+    padding-inline: MIN(5vw, 75px);
+}
+
+.title {
+    margin: 0;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+}
+ 
+
+.attestation {
+    margin-top: MIN(20vh, 160px);
+    display: flex;
+    gap: MAX(1.5vw, 20px);
+}
+
+@include max-width($break-point-mid) {
+    .attestation {
+        flex-direction: column;
+    }
+}
+
+@include max-width($break-point-small) {
+    .main {
+        margin: 0;
+        padding: 30px 15px;
+        width: auto;
+    }
+
+    .title {
+        margin-bottom: 10px;
+        font-size: 28px;
+        font-weight: 500;
+    }
+    .attestation {
+        margin-top: 45px;
+    }
+}
